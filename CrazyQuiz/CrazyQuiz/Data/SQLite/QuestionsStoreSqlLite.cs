@@ -71,7 +71,7 @@ namespace CrazyQuiz.Data.SQLite
                 "!@#$%¨&@*(*",
                 "!@#$%¨&@*(*",
                 "!@#$%¨&@*(*",
-                "!@#$%¨&@*(*",
+                "!@#$%¨&@*(*"
             );
             
             SaveQuestion(
