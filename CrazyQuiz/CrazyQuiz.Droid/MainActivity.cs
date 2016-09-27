@@ -1,35 +1,49 @@
 ﻿using System;
-
 using Android.App;
 using Android.Content;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using CrazyQuiz.Data.SQLite;
 
 namespace CrazyQuiz.Droid
 {
-	[Activity (Label = "CrazyQuiz.Droid", MainLauncher = true, Icon = "@drawable/icon")]
-	public class MainActivity : Activity
-	{
-		int count = 1;
+    [Activity(MainLauncher = true, Icon = "@drawable/icon")]
+    public class MainActivity : Activity
+    {
+        private int _count;
+        private Button _startBtn;
+        private RuntimeSettingsAndroid _runtime;
 
-		protected override void OnCreate (Bundle bundle)
-		{
-			base.OnCreate (bundle);
+        protected override void OnCreate(Bundle bundle)
+        {
+            base.OnCreate(bundle);
+            _runtime = new RuntimeSettingsAndroid();
+            Window.RequestFeature(WindowFeatures.NoTitle);
+            SetContentView(Resource.Layout.Main);
 
-			// Set our view from the "main" layout resource
-			SetContentView (Resource.Layout.Main);
+            _startBtn = FindViewById<Button>(Resource.Id.MyButton);
+            _startBtn.Click += StartButton_Click;
+        }
 
-			// Get our button from the layout resource,
-			// and attach an event to it
-			Button button = FindViewById<Button> (Resource.Id.myButton);
-			
-			button.Click += delegate {
-				button.Text = string.Format ("{0} clicks!", count++);
-			};
-		}
-	}
+
+        private void StartButton_Click(object sender, EventArgs e)
+        {
+            _count++;
+            if (_count < 2)
+                _startBtn.Text = "Você realmente quer jogar?";
+            else
+                AskForUserName();
+        }
+
+        private void AskForUserName()
+        {
+            var tr = FragmentManager.BeginTransaction();
+            var dialog = new UserDialog(_runtime);
+            tr.SetTransition(FragmentTransit.FragmentFade);
+            dialog.Show(tr, "user_dialog");
+        }
+    }
 }
-
 

@@ -1,5 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="hello">Hello World, Click Me!</string>
-	<string name="app_name">CrazyQuiz.Droid</string>
+  <string name="WelcomeText">Bem-vindo ao CrazyQuizApp!</string>
+  <string name="Start">Começar</string>
+  <string name="Continue">Continuar</string>
+  <string name="SayName">Informe o seu Nome</string>
+  <string name="RequiredName">Precisamos saber o seu nome</string>
+  <string name="QuestionNumber">Questão Nº</string>
+  <string name="Lifes">Vidas</string>
+  <string name="Scores">Scores</string>
+  <string name="GameOver">Game Over!</string>
+  <string name="LessLife">-1 Vida</string>
+  <string name="EarnScores">+{0} Scores</string>
+  <string name="ApplicationName">Crazy Quiz</string>
 </resources>

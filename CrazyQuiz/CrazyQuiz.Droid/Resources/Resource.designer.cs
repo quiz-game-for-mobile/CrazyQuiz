@@ -26,6 +26,8 @@ namespace CrazyQuiz.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::CrazyQuiz.Droid.Resource.String.ApplicationName;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::CrazyQuiz.Droid.Resource.String.Hello;
 		}
 		
 		public partial class Attribute
@@ -60,8 +62,32 @@ namespace CrazyQuiz.Droid
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f050008
+			public const int ContinueBtn = 2131034120;
+			
+			// aapt resource value: 0x7f050005
+			public const int LifesTextView = 2131034117;
+			
+			// aapt resource value: 0x7f050001
+			public const int MyButton = 2131034113;
+			
+			// aapt resource value: 0x7f050004
+			public const int OptionsListView = 2131034116;
+			
+			// aapt resource value: 0x7f050002
+			public const int QuestionNumberTextView = 2131034114;
+			
+			// aapt resource value: 0x7f050003
+			public const int QuestionTextView = 2131034115;
+			
+			// aapt resource value: 0x7f050006
+			public const int ScoresTextView = 2131034118;
+			
+			// aapt resource value: 0x7f050007
+			public const int UserNameText = 2131034119;
+			
 			// aapt resource value: 0x7f050000
-			public const int myButton = 2131034112;
+			public const int textView1 = 2131034112;
 			
 			static Id()
 			{
@@ -79,6 +105,12 @@ namespace CrazyQuiz.Droid
 			// aapt resource value: 0x7f030000
 			public const int Main = 2130903040;
 			
+			// aapt resource value: 0x7f030001
+			public const int Questionary = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int UserDialog = 2130903042;
+			
 			static Layout()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -93,10 +125,43 @@ namespace CrazyQuiz.Droid
 		{
 			
 			// aapt resource value: 0x7f040001
-			public const int app_name = 2130968577;
+			public const int ApplicationName = 2130968577;
+			
+			// aapt resource value: 0x7f040004
+			public const int Continue = 2130968580;
+			
+			// aapt resource value: 0x7f04000c
+			public const int EarnScores = 2130968588;
+			
+			// aapt resource value: 0x7f04000a
+			public const int GameOver = 2130968586;
 			
 			// aapt resource value: 0x7f040000
-			public const int hello = 2130968576;
+			public const int Hello = 2130968576;
+			
+			// aapt resource value: 0x7f04000b
+			public const int LessLife = 2130968587;
+			
+			// aapt resource value: 0x7f040008
+			public const int Lifes = 2130968584;
+			
+			// aapt resource value: 0x7f040007
+			public const int QuestionNumber = 2130968583;
+			
+			// aapt resource value: 0x7f040006
+			public const int RequiredName = 2130968582;
+			
+			// aapt resource value: 0x7f040005
+			public const int SayName = 2130968581;
+			
+			// aapt resource value: 0x7f040009
+			public const int Scores = 2130968585;
+			
+			// aapt resource value: 0x7f040003
+			public const int Start = 2130968579;
+			
+			// aapt resource value: 0x7f040002
+			public const int WelcomeText = 2130968578;
 			
 			static String()
 			{
