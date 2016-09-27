@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using CrazyQuiz.Data;
+using CrazyQuiz.Exceptions;
 
 namespace CrazyQuiz
 {
@@ -8,6 +10,7 @@ namespace CrazyQuiz
         private readonly IQuestionsStore _questions;
         private readonly IOptionsStore _options;
         private int _lifes;
+        private List<Question> _answeredQuestions;
 
         public int Lifes
         {
@@ -24,11 +27,13 @@ namespace CrazyQuiz
         public Question CurrentQuestion { get; private set; }
 
         public const int ScoresPerQuestion = 10;
+        public const int ScoresPerLife = 3;
 
         public QuestionarySession(IQuestionsStore questions, IOptionsStore options)
         {
             _questions = questions;
             _options = options;
+            _answeredQuestions = new List<Question>();
             CurrentQuestionNumber = 1;
             Lifes = 5;
             Scores = 0;
@@ -37,7 +42,10 @@ namespace CrazyQuiz
 
         private void NextQuestion()
         {
-            CurrentQuestion = _questions.GetRandom();
+            CurrentQuestion = _questions.GetRandom(_answeredQuestions);
+
+            if (CurrentQuestion == null)
+                throw new GameCompleteException();
         }
 
         public bool AnswerQuestion(int itemNumber)
@@ -45,6 +53,7 @@ namespace CrazyQuiz
             var options = _options.GetOptions(CurrentQuestion).ToList();
             if (_options.IsRigthOption(CurrentQuestion, options[itemNumber]))
             {
+                _answeredQuestions.Add(CurrentQuestion);
                 Scores += ScoresPerQuestion;
                 CurrentQuestionNumber++;
                 NextQuestion();
@@ -52,6 +61,7 @@ namespace CrazyQuiz
             }
             
             Lifes--;
+            Scores -= ScoresPerLife;
             return false;
         }
     }

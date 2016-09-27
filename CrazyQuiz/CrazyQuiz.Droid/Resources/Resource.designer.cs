@@ -133,6 +133,9 @@ namespace CrazyQuiz.Droid
 			// aapt resource value: 0x7f04000c
 			public const int EarnScores = 2130968588;
 			
+			// aapt resource value: 0x7f04000d
+			public const int GameComplete = 2130968589;
+			
 			// aapt resource value: 0x7f04000a
 			public const int GameOver = 2130968586;
 			

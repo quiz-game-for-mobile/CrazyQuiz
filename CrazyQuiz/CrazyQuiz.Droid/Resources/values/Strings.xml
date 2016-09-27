@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="WelcomeText">Bem-vindo ao CrazyQuizApp!</string>
+  <string name="WelcomeText">Bem-vindo ao CrazyQuiz!</string>
   <string name="Start">Começar</string>
   <string name="Continue">Continuar</string>
   <string name="SayName">Informe o seu Nome</string>
@@ -11,5 +11,6 @@
   <string name="GameOver">Game Over!</string>
   <string name="LessLife">-1 Vida</string>
   <string name="EarnScores">+{0} Scores</string>
+  <string name="GameComplete">Parabéns! Você completou o Crazy Quiz com {0} Scores!</string>
   <string name="ApplicationName">Crazy Quiz</string>
 </resources>

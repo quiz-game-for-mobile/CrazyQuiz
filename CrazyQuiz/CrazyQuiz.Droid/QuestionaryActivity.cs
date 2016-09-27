@@ -12,6 +12,7 @@ using Android.Views;
 using Android.Widget;
 using CrazyQuiz.Data;
 using CrazyQuiz.Data.SQLite;
+using CrazyQuiz.Exceptions;
 
 namespace CrazyQuiz.Droid
 {
@@ -88,6 +89,10 @@ namespace CrazyQuiz.Droid
             {
                 CallGameOver();
             }
+            catch (GameCompleteException)
+            {
+                CallGameComplete();
+            }
         }
 
         private void ShowLostLifeToast()
@@ -109,6 +114,15 @@ namespace CrazyQuiz.Droid
         {
             Toast
                 .MakeText(this, Resources.GetString(Resource.String.GameOver), ToastLength.Long)
+                .Show();
+            Finish();
+        }
+
+        private void CallGameComplete()
+        {
+            var completeMessage = Resources.GetString(Resource.String.GameComplete);
+            Toast
+                .MakeText(this, string.Format(completeMessage, _session.Scores), ToastLength.Long)
                 .Show();
             Finish();
         }

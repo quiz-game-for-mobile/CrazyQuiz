@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CrazyQuiz
+namespace CrazyQuiz.Exceptions
 {
     public class GameOverException : Exception
     {

@@ -35,7 +35,8 @@
     <Compile Include="Data\IOptionsStore.cs" />
     <Compile Include="Data\IQuestionsStore.cs" />
     <Compile Include="Data\IScoreUserStore.cs" />
-    <Compile Include="GameOverException.cs" />
+    <Compile Include="Exceptions\GameCompleteException.cs" />
+    <Compile Include="Exceptions\GameOverException.cs" />
     <Compile Include="QuestionarySession.cs" />
     <Compile Include="QuestionOption.cs" />
     <Compile Include="Data\SQLite\OptionsStoreSqlLite.cs" />

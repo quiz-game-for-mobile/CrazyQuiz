@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace CrazyQuiz.Data.SQLite
 {
@@ -91,7 +92,7 @@ namespace CrazyQuiz.Data.SQLite
             );
             
             SaveQuestion(
-                "Quanto é 1 + 3 em hexadecimal?", 1,
+                "Quanto é 1 + 3?", 1,
                 "B",
                 "4",
                 "D",
@@ -163,14 +164,6 @@ namespace CrazyQuiz.Data.SQLite
             );
               
             SaveQuestion(
-                "20. Quantas perguntas foram feitas até agora?", 3,
-                "19",
-                "20",
-                "21",
-                "22"
-            );
-              
-            SaveQuestion(
                 "Qual é o prêmio que você ganha ao responder esta questão?", 3,
                 "Glória eterna",
                 "Um milhão de reais",
@@ -185,7 +178,14 @@ namespace CrazyQuiz.Data.SQLite
                 "3",
                 "4"
             );
-            
+
+            SaveQuestion(
+                "Qual a razão da vida?", 4,
+                "Comer",
+                "Dormir",
+                "Esbanjar no funk ostentação",
+                "Finalizar o Crazy Quiz"
+            );
         }
 
         private void SaveQuestion(string text, int rightQuestion, params string[] options)
@@ -200,9 +200,11 @@ namespace CrazyQuiz.Data.SQLite
             DB.Insert(question);
         }
 
-        public Question GetRandom()
+        public Question GetRandom(IEnumerable<Question> answeredQuestions)
         {
-            var questions = DB.Query<Question>("select * from questions order by random() limit 1");
+            var ids = answeredQuestions.Select(q => q.Id);
+            var group = string.Join(", ", ids);
+            var questions = DB.Query<Question>($"SELECT * FROM questions WHERE id NOT IN ({group}) ORDER BY random() LIMIT 1");
             return questions.FirstOrDefault();
         }
     }
