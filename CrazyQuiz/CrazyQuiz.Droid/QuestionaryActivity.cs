@@ -44,7 +44,6 @@ namespace CrazyQuiz.Droid
             _lifesTextView = FindViewById<TextView>(Resource.Id.LifesTextView);
             _scoresTextView = FindViewById<TextView>(Resource.Id.ScoresTextView);
             _optionsListView.ChoiceMode = ChoiceMode.Single;
-
             _optionsListView.ItemClick += OptionsListViewOnItemClick;
 
             UpdatePontuations();
