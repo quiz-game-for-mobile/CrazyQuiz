@@ -4,53 +4,60 @@ using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using CrazyQuiz.Data;
 using CrazyQuiz.Data.SQLite;
 using Button = Android.Widget.Button;
 using View = Android.Views.View;
 
 namespace CrazyQuiz.Droid
 {
-    public class UserDialog : DialogFragment
+    public class ScoresDialog : DialogFragment
     {
-        private readonly IAppRuntimeSettings _settings;
+        private readonly IScoreUserStore _scores;
         private EditText _nameText;
         private Button _continueButton;
+        private TextView _finalScoresTextView;
+        private readonly QuestionarySession _session;
 
-        public UserDialog(IAppRuntimeSettings settings)
+        public ScoresDialog(QuestionarySession session)
         {
-            _settings = settings;
+            _session = session;
+            _scores = new ScoreUserStoreSqlLite(new RuntimeSettingsAndroid());
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             base.OnCreateView(inflater, container, savedInstanceState);
-            Dialog.Window.SetTitle(Context.Resources.GetString(Resource.String.SayName));
+
+            var message = _session.IsGameOver ? Resource.String.GameOver : Resource.String.GameComplete;
+            Dialog.Window.SetTitle(Context.Resources.GetString(message));
 
             return InitializeView(inflater, container);
         }
 
         private View InitializeView(LayoutInflater inflater, ViewGroup container)
         {
-            var view = inflater.Inflate(Resource.Layout.UserDialog, container, false);
+            var view = inflater.Inflate(Resource.Layout.ScoresDialog, container, false);
             _nameText = view.FindViewById<EditText>(Resource.Id.UserNameText);
             _continueButton = view.FindViewById<Button>(Resource.Id.ContinueBtn);
+            _finalScoresTextView = view.FindViewById<TextView>(Resource.Id.FinalScoresTextView);
+
+            _nameText.RequestFocus();
 
             _continueButton.Click += ContinueButtonOnClick;
+            _finalScoresTextView.Text = _session.Scores.ToString("D5");
 
             return view;
         }
 
         private void ContinueButtonOnClick(object sender, EventArgs eventArgs)
         {
-            _continueButton.Clickable = false;
-            using (var store = new ScoreUserStoreSqlLite(_settings))
-            {
-                var user = new ScoreUser(_nameText.Text);
-                if (!Validate(user)) return;
+            var user = new ScoreUser(_nameText.Text, _session.Scores);
+            if (!Validate(user)) return;
 
-                store.SaveUser(user);
-                StartGameActivity();
-            }
+            _scores.SaveUser(user);
+
+            Dismiss();
         }
 
         private bool Validate(ScoreUser user)
@@ -64,11 +71,14 @@ namespace CrazyQuiz.Droid
             return true;
         }
 
-        private void StartGameActivity()
+        public override void OnDestroy()
         {
-            var intent = new Intent(Context, typeof(QuestionaryActivity));
+            base.OnDestroy();
+
+            var intent = new Intent(Context, typeof(HighScoresActivity));
             StartActivity(intent);
-            Dismiss();
+
+            _scores.Dispose();
         }
     }
 }

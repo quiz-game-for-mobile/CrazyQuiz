@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CrazyQuiz.Data.SQLite
@@ -11,13 +12,20 @@ namespace CrazyQuiz.Data.SQLite
 
         public void SaveUser(ScoreUser user)
         {
-            if (GetUser(user.Name) == null)
+            if (!Exists(user.Name))
                 DB.Insert(user);
+            else
+                DB.Update(user);
         }
 
-        public ScoreUser GetUser(string name)
+        private bool Exists(string name)
         {
-            return DB.Table<ScoreUser>().FirstOrDefault(u => u.Name == name);
+            return DB.Table<ScoreUser>().Any(u => u.Name == name);
+        }
+
+        public IEnumerable<ScoreUser> GetUsers()
+        {
+            return DB.Table<ScoreUser>().OrderByDescending(u => u.Scores);
         }
     }
 }

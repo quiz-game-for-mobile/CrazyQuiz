@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <style name="CrazyQuiz" parent="CrazyQuiz.Base">
+  </style>
+
+  <style name="CrazyQuiz.Base" parent="Theme.AppCompat.Light">
+    <item name="windowNoTitle">true</item>
+    <item name="windowActionBar">false</item>
+    <item name="android:windowFullscreen">true</item>
+    <item name="android:windowContentOverlay">@null</item>
+    <item name="android:textColor">@color/brand_secondary</item>
+  </style>
+
+  <style name="CrazyQuiz.MainButton" parent="@style/Widget.AppCompat.Button">
+    <item name="android:background">@color/brand_secondary</item>
+    <item name="android:textColor">@color/brand_primary</item>
+    <item name="android:textSize">14pt</item>
+    <item name="android:padding">15dp</item>
+    <item name="android:layout_margin">5dp</item>
+  </style>
+
+  <style name="CrazyQuiz.Splash" parent ="CrazyQuiz.Base">
+    <item name="android:windowBackground">@drawable/splash_screen</item>
+  </style>
+
+</resources>

@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <color name="brand_primary">@android:color/holo_blue_light</color>
+  <color name="brand_secondary">@android:color/background_light</color>
+</resources>

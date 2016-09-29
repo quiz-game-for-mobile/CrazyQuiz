@@ -5,44 +5,44 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
-using CrazyQuiz.Data.SQLite;
+using Android.Support.V7.App;
 
 namespace CrazyQuiz.Droid
 {
-    [Activity(MainLauncher = true, Icon = "@drawable/icon")]
-    public class MainActivity : Activity
+    [Activity(Theme = "@style/CrazyQuiz.Base")]
+    public class MainActivity : AppCompatActivity
     {
-        private int _count;
         private Button _startBtn;
-        private RuntimeSettingsAndroid _runtime;
+        private Button _highScoresBtn;
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            _runtime = new RuntimeSettingsAndroid();
-            Window.RequestFeature(WindowFeatures.NoTitle);
             SetContentView(Resource.Layout.Main);
 
-            _startBtn = FindViewById<Button>(Resource.Id.MyButton);
+            _startBtn = FindViewById<Button>(Resource.Id.StartButton);
+            _highScoresBtn = FindViewById<Button>(Resource.Id.HighScoresButton);
+
             _startBtn.Click += StartButton_Click;
+            _highScoresBtn.Click += HighScoresBtnOnClick;
         }
 
+        private void HighScoresBtnOnClick(object sender, EventArgs eventArgs)
+        {
+            var intent = new Intent(this, typeof(HighScoresActivity));
+            StartActivity(intent);
+        }
 
         private void StartButton_Click(object sender, EventArgs e)
         {
-            _count++;
-            if (_count < 2)
-                _startBtn.Text = "Você realmente quer jogar?";
-            else
-                AskForUserName();
+            _startBtn.Text = Resources.GetString(Resource.String.Start);
+            StartGameActivity();
         }
 
-        private void AskForUserName()
+        private void StartGameActivity()
         {
-            var tr = FragmentManager.BeginTransaction();
-            var dialog = new UserDialog(_runtime);
-            tr.SetTransition(FragmentTransit.FragmentFade);
-            dialog.Show(tr, "user_dialog");
+            var intent = new Intent(this, typeof(QuestionaryActivity));
+            StartActivity(intent);
         }
     }
 }

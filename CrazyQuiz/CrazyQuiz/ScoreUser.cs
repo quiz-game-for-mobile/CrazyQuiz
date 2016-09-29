@@ -18,10 +18,13 @@ namespace CrazyQuiz
             }
         }
 
+        public int Scores { get; set; }
+
         public ScoreUser() { }
-        public ScoreUser(string name)
+        public ScoreUser(string name, int scores)
         {
             Name = name;
+            Scores = scores;
         }
     }
 }

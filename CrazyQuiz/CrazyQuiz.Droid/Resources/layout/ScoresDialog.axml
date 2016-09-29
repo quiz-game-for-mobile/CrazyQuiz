@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:text="@string/Scores"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="30px"/>
+    <TextView
+        android:text="0000"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/FinalScoresTextView"
+        android:gravity="center"
+        android:padding="20px"
+        android:textSize="20pt"/>
+    <TextView
+        android:text="@string/SayName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="60px" />
+    <EditText
+        android:inputType="textPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/UserNameText" />
+    <Button
+        android:text="@string/Continue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ContinueBtn" />
+</LinearLayout>

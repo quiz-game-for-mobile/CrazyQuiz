@@ -16,7 +16,7 @@ using CrazyQuiz.Exceptions;
 
 namespace CrazyQuiz.Droid
 {
-    [Activity]
+    [Activity(NoHistory = true)]
     public class QuestionaryActivity : Activity
     {
         private TextView _questionNumberTextView;
@@ -76,7 +76,7 @@ namespace CrazyQuiz.Droid
             try
             {
                 if (_session.AnswerQuestion(itemClickEventArgs.Position))
-                { 
+                {
                     PopulateQuestion();
                     ShowEarnScoresToast();
                 }
@@ -115,7 +115,8 @@ namespace CrazyQuiz.Droid
             Toast
                 .MakeText(this, Resources.GetString(Resource.String.GameOver), ToastLength.Long)
                 .Show();
-            Finish();
+
+            AskForUserName();
         }
 
         private void CallGameComplete()
@@ -124,7 +125,8 @@ namespace CrazyQuiz.Droid
             Toast
                 .MakeText(this, string.Format(completeMessage, _session.Scores), ToastLength.Long)
                 .Show();
-            Finish();
+
+            AskForUserName();
         }
 
         protected override void OnDestroy()
@@ -133,6 +135,12 @@ namespace CrazyQuiz.Droid
 
             _questionsStore.Dispose();
             _optionsStore.Dispose();
+        }
+
+        private void AskForUserName()
+        {
+            var dialog = new ScoresDialog(_session);
+            dialog.Show(FragmentManager, "scores_dialog");
         }
     }
 }

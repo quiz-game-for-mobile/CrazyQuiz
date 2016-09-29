@@ -10,7 +10,8 @@ namespace CrazyQuiz
         private readonly IQuestionsStore _questions;
         private readonly IOptionsStore _options;
         private int _lifes;
-        private List<Question> _answeredQuestions;
+        private readonly List<Question> _answeredQuestions;
+        private int _scores;
 
         public int Lifes
         {
@@ -22,12 +23,18 @@ namespace CrazyQuiz
             }
         }
 
-        public int Scores { get; private set; }
+        public int Scores
+        {
+            get { return _scores; }
+            private set { _scores = (value < 0) ? 0 : value; }
+        }
+
         public int CurrentQuestionNumber { get; private set; }
         public Question CurrentQuestion { get; private set; }
 
         public const int ScoresPerQuestion = 10;
         public const int ScoresPerLife = 3;
+        public bool IsGameOver => Lifes <= 0;
 
         public QuestionarySession(IQuestionsStore questions, IOptionsStore options)
         {

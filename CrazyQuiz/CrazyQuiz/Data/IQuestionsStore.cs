@@ -8,7 +8,7 @@ namespace CrazyQuiz.Data
 {
     public interface IQuestionsStore : IDisposable
     {
-        void SaveQuestion(Question question);
+        void SaveQuestion(string text, int rightQuestion, params string[] options);
         Question GetRandom(IEnumerable<Question> answeredQuestions);
     }
 }
