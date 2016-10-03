@@ -20,6 +20,22 @@
             );
             
             _store.SaveQuestion(
+                "Qual é o pais pioneiro no ramo de calçados?", 1,
+                "Itália",
+                "Sérvia",
+                "Alemanha",
+                "Espanha"
+            );
+            
+            _store.SaveQuestion(
+                "Você ganhou o Crazy Quiz!", 3,
+                "Salvar Pontuação",
+                "High Scores",
+                "Mais Perguntas",
+                "Sair"
+            );
+            
+            _store.SaveQuestion(
                 "Qual estado brasileiro é masoquista?", 2,
                 "São Paulo",
                 "Salvador",
