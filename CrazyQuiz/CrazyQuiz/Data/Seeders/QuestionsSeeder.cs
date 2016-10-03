@@ -26,6 +26,14 @@
                 "AMD",
                 "Samsung"
             );
+            
+            _store.SaveQuestion(
+                "Qual é o número do silêncio?", 4,
+                "5",
+                "7",
+                "9",
+                "X"
+            );
 
             _store.SaveQuestion(
                 "Código: 3-15-7-21-13-5-15", 3,
