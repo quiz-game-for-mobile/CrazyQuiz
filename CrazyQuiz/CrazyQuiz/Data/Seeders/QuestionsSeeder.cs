@@ -20,6 +20,14 @@
             );
             
             _store.SaveQuestion(
+                "Qual revista possui olhos?", 4,
+                "Quem",
+                "Quatro Rodas",
+                "Exame",
+                "Veja"
+            );
+            
+            _store.SaveQuestion(
                 "Qual o conjunto utilizado para cuidar dos gatos?", 2,
                 "Iscas Sachê",
                 "Kit Kat",
