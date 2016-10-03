@@ -20,7 +20,7 @@
             );
             
             _store.SaveQuestion(
-                "Qual estado brasileiro é masoquista?", 4,
+                "Qual estado brasileiro é masoquista?", 2,
                 "São Paulo",
                 "Salvador",
                 "Acre",
