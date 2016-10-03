@@ -18,6 +18,46 @@
                 "Cadeira de Rodas",
                 "Barco"
             );
+            
+            _store.SaveQuestion(
+                "Qual empresa está sempre a frente da IBM?", 2,
+                "Intel Corporation",
+                "HAL Laboratory",
+                "AMD",
+                "Samsung"
+            );
+
+            _store.SaveQuestion(
+                "Código: 3-15-7-21-13-5-15", 3,
+                "Cachorro",
+                "Maracujá",
+                "Cogumelo",
+                "Boxeador"
+            );
+            
+            _store.SaveQuestion(
+                "Qual é a profissão de Passos Dias Aguiar?", 1,
+                "Táxista",
+                "Taxonomista",
+                "Padeiro",
+                "Sapateiro"
+            );
+            
+            _store.SaveQuestion(
+                "Por que as minas terrestres são perigosas?", 2,
+                "Porque elas explodem",
+                "Porque não existem as alienígenas",
+                "Porque ninguém escapa delas",
+                "Porque sim"
+            );
+            
+            _store.SaveQuestion(
+                "Complete a frase: Querer não __ ______der?", 3,
+                "é saber",
+                "é poder",
+                "apple",
+                "google"
+            );
 
             _store.SaveQuestion(
                 "Marque a resposta 5!", 3,
@@ -60,7 +100,7 @@
             );
 
             _store.SaveQuestion(
-                "Qual é o plural de \"ar-condicionado\"?", 4,
+                "Qual é o plural de \"ar-condicionado\"?", 3,
                 "ar-condicionados",
                 "ares-condicionado",
                 "ares-condicionados",
@@ -76,7 +116,7 @@
             );
 
             _store.SaveQuestion(
-                "Qual é a comida que liga e desliga?", 4,
+                "Qual é a comida que liga e desliga?", 3,
                 "O tomate",
                 "Uma lâmpada",
                 "O strogonoff",
