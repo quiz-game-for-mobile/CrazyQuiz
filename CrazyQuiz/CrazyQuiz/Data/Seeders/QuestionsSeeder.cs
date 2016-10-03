@@ -20,6 +20,14 @@
             );
             
             _store.SaveQuestion(
+                "Qual estado brasileiro é masoquista?", 4,
+                "São Paulo",
+                "Salvador",
+                "Acre",
+                "Mato Grosso"
+            );
+            
+            _store.SaveQuestion(
                 "Qual empresa está sempre a frente da IBM?", 2,
                 "Intel Corporation",
                 "HAL Laboratory",
