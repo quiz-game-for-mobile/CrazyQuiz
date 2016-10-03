@@ -165,10 +165,10 @@
 
             _store.SaveQuestion(
                 "Qual destes objetos é o mais verde?", 1,
-                "Carvalho seco",
-                "Tala Verde",
+                "1 Real",
+                "Uma tartaruga",
                 "Ísis Valverde",
-                "40"
+                "Partido Verde"
             );
 
             _store.SaveQuestion(
@@ -193,6 +193,14 @@
                 "Um milhão de reais",
                 "Mais perguntas",
                 "Um lugar na tabela de pontuações"
+            );
+
+            _store.SaveQuestion(
+                "Qual é o condimento que sabe de tudo?", 4,
+                "Molho Shoyu",
+                "O Vinagrete",
+                "O Ketchup",
+                "O Wasabi"
             );
 
             _store.SaveQuestion(
