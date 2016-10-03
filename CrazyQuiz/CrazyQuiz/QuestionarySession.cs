@@ -26,7 +26,7 @@ namespace CrazyQuiz
         public int Scores
         {
             get { return _scores; }
-            private set { _scores = (value < 0) ? 0 : value; }
+            private set { _scores = value < 0 ? 0 : value; }
         }
 
         public int CurrentQuestionNumber { get; private set; }
