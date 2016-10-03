@@ -20,6 +20,14 @@
             );
             
             _store.SaveQuestion(
+                "Qual o conjunto utilizado para cuidar dos gatos?", 2,
+                "Iscas Sachê",
+                "Kit Kat",
+                "Ração Pedigree",
+                "Conjunto de Veterinário"
+            );
+            
+            _store.SaveQuestion(
                 "Qual é o pais pioneiro no ramo de calçados?", 1,
                 "Itália",
                 "Sérvia",
