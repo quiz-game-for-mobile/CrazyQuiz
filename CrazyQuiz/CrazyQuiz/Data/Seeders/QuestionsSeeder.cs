@@ -20,6 +20,30 @@
             );
             
             _store.SaveQuestion(
+                "Qual destes insetos é cowboy?", 3,
+                "Formiga",
+                "Escorpião",
+                "Aranha",
+                "Carrapato"
+            );
+            
+            _store.SaveQuestion(
+                "Qual a seção do jornal que os cavaleiros da idade média costumavam ler?", 1,
+                "Cruzadas",
+                "Boletim Policial",
+                "Esportes",
+                "Tirinhas"
+            );
+            
+            _store.SaveQuestion(
+                "Coloque em ordem: 1,5,6,9,4,8,7,2,3,0", 2,
+                "6,8,2,7,9,0,1,4,3,5",
+                "5,2,8,9,4,6,7,3,1,0",
+                "4,0,2,8,9,3,1,7,5,6",
+                "0,1,2,3,4,5,6,7,8,9"
+            );
+            
+            _store.SaveQuestion(
                 "Qual revista possui olhos?", 4,
                 "Quem",
                 "Quatro Rodas",
