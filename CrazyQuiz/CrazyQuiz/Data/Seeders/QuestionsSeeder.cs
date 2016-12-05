@@ -12,6 +12,14 @@
         public void Seed()
         {
             _store.SaveQuestion(
+                "Zeca tinha um canário, Mateus tinha um porco e Nicole tinha um gato. De quem é o passáro?", 1,
+                "12K",
+                "Nicole",
+                "53",
+                "Nenhuma das respostas acima"
+            );
+            
+            _store.SaveQuestion(
                 "Qual elemento não pertence?", 4,
                 "Carro",
                 "Caminhão",
